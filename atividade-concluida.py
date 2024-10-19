@@ -1,3 +1,7 @@
+import os
+os. system ("cls || clear")
+
+
 # Função para calcular o INSS
 def calcular_inss(salario_base):
     if salario_base <= 1100.00:
@@ -29,20 +33,20 @@ def calcular_irrf(salario_base, dependentes):
         irrf = base_irrf * 0.275 - 869.36
     return max(irrf, 0)
 
-# Função principal
+
 def folha_pagamento():
     matricula = input("Digite a matrícula do funcionário: ")
     senha = input("Digite a senha: ")  # Não estamos verificando a senha por questões de simplicidade
     salario_base = float(input("Digite o salário base do funcionário (R$): "))
     
-    # Pergunta sobre o vale transporte
+    # Perguntando sobre o vale transporte
     vale_transporte = input("Deseja receber vale transporte? (s/n): ").lower()
     if vale_transporte == 's':
         vt = salario_base * 0.06
     else:
         vt = 0
 
-    # Pergunta o valor do vale refeição
+    # Perguntando o valor do vale refeição
     vale_refeicao = float(input("Digite o valor do vale refeição fornecido pela empresa (R$): "))
     vr = vale_refeicao * 0.20  # 20% de desconto no vale refeição
 
@@ -57,7 +61,7 @@ def folha_pagamento():
     descontos = inss + irrf + vt + vr + plano_saude
     salario_liquido = salario_base - descontos
 
-    # Exibir o resultado
+    # Exibindo dados
     print(f"\nMatrícula: {matricula}")
     print(f"Salário Base: R$ {salario_base:.2f}")
     print(f"Desconto INSS: R$ {inss:.2f}")
@@ -67,5 +71,5 @@ def folha_pagamento():
     print(f"Desconto Plano de Saúde: R$ {plano_saude:.2f}")
     print(f"Salário Líquido: R$ {salario_liquido:.2f}")
 
-# Executa o programa
+
 folha_pagamento()
